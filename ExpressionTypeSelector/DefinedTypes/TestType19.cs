@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace ExpressionTypeSelector.DefinedTypes
 {
-    public class TestType1 : ITestType
+    public class TestType19 : ITestType
     {
         public IReadOnlyList<Section> IdentificationPattern => new[]
         {
-				new Section(5, "C"),
-				new Section(1, "1234"),
-				new Section(4, "abc"),
+				new Section(3, "def"),
+				new Section(4, "def"),
+				new Section(1, "A"),
 
         };
     }
