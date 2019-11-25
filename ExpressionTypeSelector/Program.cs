@@ -65,6 +65,33 @@ namespace ExpressionTypeSelector
 
             [Benchmark]
             public Type NestedExpr0Lookup() => _nestedExpressionTypeMatcher.MatchOn(SectionsFor0);
+
+            [Benchmark]
+            public Type[] AllTrieLookup() => new[]
+            {
+                _trieTypeMatcher.MatchOn(SectionsFor0),
+                _trieTypeMatcher.MatchOn(SectionsFor24),
+                _trieTypeMatcher.MatchOn(SectionsFor75),
+                _trieTypeMatcher.MatchOn(SectionsFor99),
+            };
+            
+            [Benchmark]
+            public Type[] AllSimpleExprLookup() => new[]
+            {
+                _simpleExpressionTypeMatcher.MatchOn(SectionsFor0),
+                _simpleExpressionTypeMatcher.MatchOn(SectionsFor24),
+                _simpleExpressionTypeMatcher.MatchOn(SectionsFor75),
+                _simpleExpressionTypeMatcher.MatchOn(SectionsFor99),
+            };
+            
+            [Benchmark]
+            public Type[] AllNestedExprLookup() => new[]
+            {
+                _nestedExpressionTypeMatcher.MatchOn(SectionsFor0),
+                _nestedExpressionTypeMatcher.MatchOn(SectionsFor24),
+                _nestedExpressionTypeMatcher.MatchOn(SectionsFor75),
+                _nestedExpressionTypeMatcher.MatchOn(SectionsFor99),
+            };
         }
     }
 }
