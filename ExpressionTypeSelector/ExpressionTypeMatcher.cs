@@ -17,6 +17,7 @@ namespace ExpressionTypeSelector
                 .Where(x => !x.IsAbstract)
                 .Where(x => !x.IsInterface)
                 .Where(x => typeof(ITestType).IsAssignableFrom(x))
+                .OrderBy(x => x.Name)
                 .Select(x => (ITestType) Activator.CreateInstance(x));
 
             var countProperty = typeof(Section[])
