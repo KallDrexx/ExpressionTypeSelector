@@ -25,9 +25,9 @@ namespace ExpressionTypeSelector
             _matchFunction = Expression.Lambda<Func<Section[], Type>>(expressions, sectionParameter).Compile();
         }
         
-        public Type MatchOn(IEnumerable<Section> sections)
+        public Type MatchOn(Section[] sections)
         {
-            return _matchFunction(sections.ToArray());
+            return _matchFunction(sections);
         }
 
         private static Node BuildTrie()

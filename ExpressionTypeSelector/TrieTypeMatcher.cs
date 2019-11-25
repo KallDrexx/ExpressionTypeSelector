@@ -44,9 +44,9 @@ namespace ExpressionTypeSelector
             }
         }
 
-        public Type MatchOn(IEnumerable<Section> sections)
+        public Type MatchOn(Section[] sections)
         {
-            return Search(sections.ToArray().AsSpan(), _rootNode);
+            return Search(sections.AsSpan(), _rootNode);
         }
 
         private static Type Search(Span<Section> sections, Node currentNode)

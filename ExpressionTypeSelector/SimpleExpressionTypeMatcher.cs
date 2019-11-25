@@ -66,9 +66,9 @@ namespace ExpressionTypeSelector
                 .Compile();
         }
 
-        public Type MatchOn(IReadOnlyList<Section> sections)
+        public Type MatchOn(Section[] sections)
         {
-            return _matchFunction(sections.ToArray());
+            return _matchFunction(sections);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
@@ -24,10 +25,10 @@ namespace ExpressionTypeSelector
             private readonly TrieTypeMatcher _trieTypeMatcher = new TrieTypeMatcher();
             private readonly SimpleExpressionTypeMatcher _simpleExpressionTypeMatcher = new SimpleExpressionTypeMatcher();
             private readonly NestedExpressionTypeMatcher _nestedExpressionTypeMatcher = new NestedExpressionTypeMatcher();
-            private static IReadOnlyList<Section> SectionsFor75 => Section.Parse("{5}1234{3}A{2}A{4}123{5}abc");
-            private static IReadOnlyList<Section> SectionsFor24 => Section.Parse("{1}C{4}C{5}C");
-            private static IReadOnlyList<Section> SectionsFor99 => Section.Parse("{5}B{2}A{5}C");
-            private static IReadOnlyList<Section> SectionsFor0 => Section.Parse("{2}abc{5}B{5}C");
+            private static Section[] SectionsFor75 => Section.Parse("{5}1234{3}A{2}A{4}123{5}abc").ToArray();
+            private static Section[] SectionsFor24 => Section.Parse("{1}C{4}C{5}C").ToArray();
+            private static Section[] SectionsFor99 => Section.Parse("{5}B{2}A{5}C").ToArray();
+            private static Section[] SectionsFor0 => Section.Parse("{2}abc{5}B{5}C").ToArray();
 
             [Benchmark]
             public Type Trie75Lookup() => _trieTypeMatcher.MatchOn(SectionsFor75);
