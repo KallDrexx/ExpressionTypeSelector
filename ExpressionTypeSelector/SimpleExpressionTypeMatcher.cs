@@ -6,11 +6,11 @@ using ExpressionTypeSelector.DefinedTypes;
 
 namespace ExpressionTypeSelector
 {
-    public class ExpressionTypeMatcher
+    public class SimpleExpressionTypeMatcher
     {
         private readonly Func<Section[], Type> _matchFunction;
         
-        public ExpressionTypeMatcher()
+        public SimpleExpressionTypeMatcher()
         {
             var implementations = typeof(ITestType).Assembly
                 .GetTypes()
